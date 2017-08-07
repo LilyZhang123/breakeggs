@@ -67,11 +67,11 @@
 .cd .circle1{background:rgba(69,146,240,.3);width:112px;height: 112px;border-radius:50%;display: block;position: absolute;left:-7px;top:-7px; z-index: 9;}
 .cd .circle2{background:rgba(69,146,240,.3);width:126px;height: 126px;border-radius:50%;display: block;position: absolute;left:-14px;top:-14px; z-index: 8;}
 .tips{
-  width: 100%;
   position: relative;
-  top:-0.8rem;
-  left: 2.0rem;
+  top:-8rem;
+  left: 20rem;
   z-index: 99;
+  display: table;
 }
 .sec01 .bd{text-align:center;margin-top: 45px;}
 
@@ -130,17 +130,21 @@
 }
 #modalToggle .img{
   height: 46.5rem;
+
 }
 #modalToggle .img.egg-bg1{
   background:  url(../../../assets/public/images/act/egg1.png) no-repeat center center;
+  background-size: cover;
   height: 46.5rem;
 }
 #modalToggle .img.egg-bg2{
   background:  url(../../../assets/public/images/act/egg2.png) no-repeat center center;
+  background-size: cover;
   height: 46.5rem;
 }
 #modalToggle .img.egg-bg3{
   background:  url(../../../assets/public/images/act/egg3.png) no-repeat center center;
+  background-size: cover;
   height: 46.5rem;
 }
 

@@ -5,7 +5,7 @@
         <img class="title-img baoxiang" src="../assets/public/images/act/big-title.png"/>
       </div>
       <div class="indexbanner cd" id="modalToggle">
-        <div class="img " v-bind:class="{'egg-bg1':bg1,'egg-bg2':bg2,'egg-bg3':bg3}" @click="breakegg()"></div>
+        <div class="img " v-bind:class="{'egg-bg1':bg1,'egg-bg2':bg2,'egg-bg3':bg3}" @click="breakegg"></div>
         <div class="tips">
           <img src="../assets/public/images/act/tip.png"></div>
       </div>
@@ -39,6 +39,8 @@ export default {
       bg1:true,
       bg2:false,
       bg3:false,
+      num:'',
+      clickFlag:false
     }
   },
   mounted:function (){
@@ -50,8 +52,7 @@ export default {
         winHeight = window.innerHeight;
         winWidth = window.innerWidth;
     }else if ((document.body) && (document.body.clientHeight))
-        winHeight = document.body.clientHeight;
-    // console.log(curHeight,winHeight,winWidth);
+      winHeight = document.body.clientHeight;
     if (curHeight<winHeight) {
       cur[0].style.height = winHeight+"px";
     }
@@ -61,21 +62,29 @@ export default {
 
     },
     breakegg:function(){
-      console.log(1);
+      var that = this;
       setTimeout(function(){
-        this.bg1 = false;
-        this.bg2 = true;
+        that.bg1 = false;
+        that.bg2 = true;
         setTimeout(function(){
-            this.bg2 = false;
-            this.bg3 = true;
-        },50);
+            that.bg2 = false;
+            that.bg3 = true;
+            if (that.clickFlag === false) {
+              that.RandomNumBoth(0,1);
+              that.clickFlag = true;
+              if (that.num ===1) {
+                // 弹框1
+              }else{
+                // 弹框2
+              }
+            }
+        },500);
       },50);
     },
-    RandomNumBoth:function(){
+    RandomNumBoth:function(Min,Max){
       var Range = Max - Min;
       var Rand = Math.random();
-      var num = Min + Math.round(Rand * Range); //四舍五入
-      return num;
+      this.num = Min + Math.round(Rand * Range); //四舍五入
     }
   }
 }
