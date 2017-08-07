@@ -23,15 +23,15 @@
  .gift-content.bg1{
   background: url(../../../assets/public/images/act/gift_bg1.png) no-repeat center center;
   background-size: 100% 5rem;
-  height: 5rem;
+  height: 50rem;
   position: relative;
-  top: -0.3rem;
+  top: -3rem;
  }
  .gift-content.bg1 p{
-  font-size: 0.3rem;
+  font-size: 3rem;
   color: #fff;
   position: absolute;
-  bottom: 0.8rem;
+  bottom: 8rem;
   text-align: center;
   text-indent:2em;
  }
@@ -39,26 +39,26 @@
  .gift-content.bg2{
   background: url(../../../assets/public/images/act/gift_bg2.png) no-repeat center center;
   background-size: cover;
-  height: 675px;
-  width: 60%;
+  height: 1174px;
+  width: 80%;
  }
  .gift-content.bg2 p{
   color: #fff;
-  font-size: 0.24rem;
-  margin-top: 0.3rem;
-  padding:0 0.3rem;
+  font-size: 2.4rem;
+  margin-top: 3rem;
+  padding:0 3rem;
  }
   .gift-content.bg2 p em{
   color: #fff60b;
  }
  .gift-content.bg2 p:nth-child(1){
-  margin-top: 0.6rem;
-  padding-top: 0.55rem;
-  font-size: 0.32rem;
+  margin-top: 6rem;
+  padding-top: 5.5rem;
+  font-size: 3.2rem;
   text-align: center;
  }
  .gift-content.bg2 p:nth-child(2){
-  margin-top: 0.9rem;
+  margin-top: 13rem;
  }
 
 .cd{text-align:center;}

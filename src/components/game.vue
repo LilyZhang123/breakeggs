@@ -15,14 +15,14 @@
       </div>
     </div>
     <!-- 未中奖 -->
-    <div class="modal hide" id="prize0">
+    <div class="modal" v-bind:class="{hide:hideModalFlag}" id="prize0">
       <div class="modal-content" >
         <div class="info-icon">
-          <img src="../assets/public/images/act/lost_icon.png" alt=""></div>
-        <div class="info-content">好可惜，没有中奖哦</div>
+          <img :src="tipsUrl" alt=""></div>
+        <div class="info-content">{{tipsWord}}</div>
         <div class="info-action">
-          <a class="modal-close">
-            <img src="../assets/public/images/act/btn.png" alt=""></a>
+          <router-link class="modal-close" :to="{path:'/gift'}">
+            <img src="../assets/public/images/act/btn.png" alt=""></router-link>
         </div>
       </div>
     </div>
@@ -31,6 +31,9 @@
 </template>
 
 <script>
+
+import tipsUrl from "../assets/public/images/act/lost_icon.png";
+import tipsUrl2 from "../assets/public/images/act/gift.png";
 export default {
   name: 'index',
   data () {
@@ -40,7 +43,11 @@ export default {
       bg2:false,
       bg3:false,
       num:'',
-      clickFlag:false
+      clickFlag:false,
+      tipsWord:"好可惜，没有中奖哦",
+      tipsUrl:tipsUrl,
+      // tipsUrl:"../assets/public/images/act/lost_icon.png",
+      // tipsUrl:"../static/img/lost_icon.png",
     }
   },
   mounted:function (){
@@ -62,6 +69,7 @@ export default {
 
     },
     breakegg:function(){
+      // 点击砸蛋
       var that = this;
       setTimeout(function(){
         that.bg1 = false;
@@ -72,19 +80,24 @@ export default {
             if (that.clickFlag === false) {
               that.RandomNumBoth(0,1);
               that.clickFlag = true;
-              if (that.num ===1) {
-                // 弹框1
-              }else{
-                // 弹框2
-              }
+              that.showModal();
             }
         },500);
       },50);
     },
     RandomNumBoth:function(Min,Max){
+      // 产生随机数
       var Range = Max - Min;
       var Rand = Math.random();
       this.num = Min + Math.round(Rand * Range); //四舍五入
+    },
+    showModal:function () {
+      this.hideModalFlag === true ?this.hideModalFlag = false:this.hideModalFlag = true;
+      if (this.num ===1) {
+        // 弹框1
+        this.tipsWord = "恭喜你！获得<em>一等奖乐扣水杯</em>！请截图保存中奖信息页面到中国移动云计算大会现场兑奖"
+        this.tipsUrl = tipsUrl2
+      }
     }
   }
 }
