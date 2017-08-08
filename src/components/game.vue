@@ -146,9 +146,7 @@ export default {
           that.breakflag3 = false;
           that.crackflag3 = true;
         }
-        
         setTimeout(function(){
-
           if (num === 1) {
             that.breakflag1 = true;
             that.crackflag1 = false;

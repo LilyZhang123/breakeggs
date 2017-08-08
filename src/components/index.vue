@@ -14,7 +14,7 @@
     </div>
     <div class="indexbottom2">
       <a href="#">活动规则</a>
-      <a href="gift1.html">我的奖品</a>
+      <!-- <a href="gift1.html">我的奖品</a> -->
     </div>
   </div>
 

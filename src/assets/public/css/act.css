@@ -168,7 +168,7 @@ em{font-style: normal;}
   width: 100%;
 }
 .hammer.rotate{
-  -webkit-animation: rotate 2s linear infinite; -moz-animation: rotate 2s linear infinite; animation: rotate 2s linear infinite; 
+  -webkit-animation: rotate 0.3s linear 1; -moz-animation: rotate 0.3s linear 1; animation: rotate 0.3s linear 1; 
 }
 .img.egg-background {
   background:  url(../../../assets/public/images/act/egg-bg.png) no-repeat center bottom;
@@ -324,7 +324,7 @@ table tr td:not(:nth-child(3)){border-right: 1px solid #5e2b30; }
 /*适用于当前的match.css样式*/
 .demo { -webkit-animation: pulse 1s ease both; -moz-animation: pulse 1s ease both; animation: pulse 1s ease both; }
 
-.rotate { -webkit-animation: rotate 2s linear infinite; -moz-animation: rotate 2s linear infinite; animation: rotate 2s linear infinite; }
+/*.rotate { -webkit-animation: rotate 2s linear infinite; -moz-animation: rotate 2s linear infinite; animation: rotate 2s linear infinite; }*/
 
 .animated { -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
 
@@ -333,9 +333,9 @@ table tr td:not(:nth-child(3)){border-right: 1px solid #5e2b30; }
 .animated.hinge { -webkit-animation-duration: 2s; animation-duration: 2s; }
 
 @keyframes rotate { 0% { -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(720deg); -moz-transform: rotate(720deg); transform: rotate(720deg); } }
+  100% { -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); transform: rotate(90deg); } }
 @-webkit-keyframes rotate { 0% { -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(720deg); -moz-transform: rotate(720deg); transform: rotate(720deg); } }
+  100% { -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); transform: rotate(90deg); } }
 @keyframes cui-loading { 0% { opacity: 1; -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); transform: rotate(0deg); }
   100% { opacity: 1; -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); transform: rotate(360deg); } }
 @-webkit-keyframes cui-loading { 0% { opacity: 1; -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); transform: rotate(0deg); }
