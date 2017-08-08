@@ -6,7 +6,7 @@
       </div>
       <div class="indexbanner" id="modalToggle">
         <div class="img egg-background">
-          <div class="hammer" v-bind:style="{'top':topH,'left':leftH}"><img src="../assets/public/images/act/hammer.png" alt=""></div>
+          <div class="hammer" v-bind:class="{'rotate':rotateFlag}" v-bind:style="{'top':topH,'left':leftH}"><img src="../assets/public/images/act/hammer.png" alt=""></div>
           <div class="eggs-area">
             <div class="left-egg" v-bind:class="{'cracks-egg':crackflag1,'break-egg':breakflag1}" @click="breakegg2($event,1)"></div>
             <div class="center-egg" v-bind:class="{'cracks-egg':crackflag2,'break-egg':breakflag2}" @click="breakegg2($event,2)"></div>
@@ -87,6 +87,7 @@ export default {
       crackflag2:false,
       breakflag3:false,
       crackflag3:false,
+      rotateFlag:false
     }
   },
   mounted:function (){
@@ -127,6 +128,7 @@ export default {
     },
     breakegg2:function(e,num){
       console.log(e);
+      this.rotateFlag = true;
       var rect = e.target.getBoundingClientRect();
       this.popup.x = rect.left;
       this.popup.y = rect.top;
@@ -157,7 +159,6 @@ export default {
             that.breakflag3 = true;
             that.crackflag3 = false;
           }
-            
             if (that.clickFlag === false) {
               setTimeout(function(){
                 that.RandomNumBoth(0,1);

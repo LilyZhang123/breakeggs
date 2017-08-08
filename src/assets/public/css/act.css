@@ -167,6 +167,9 @@ em{font-style: normal;}
 .hammer img{
   width: 100%;
 }
+.hammer.rotate{
+  -webkit-animation: rotate 2s linear infinite; -moz-animation: rotate 2s linear infinite; animation: rotate 2s linear infinite; 
+}
 .img.egg-background {
   background:  url(../../../assets/public/images/act/egg-bg.png) no-repeat center bottom;
   background-size: 100%;
@@ -210,19 +213,47 @@ em{font-style: normal;}
   text-align: center;
   left: 70%;
 }
-.img.egg-background .cracks-egg{
+.img.egg-background .left-egg.cracks-egg{
+  background:  url(../../../assets/public/images/act/cracks-egg.png) no-repeat center bottom;
+  background-size: 100%;
+  width: 35%;
+  z-index:998;
+}
+.img.egg-background .center-egg.cracks-egg{
   background:  url(../../../assets/public/images/act/cracks-egg.png) no-repeat center bottom;
   background-size: 100%;
   width: 50%;
   z-index:998;
 }
-
-.img.egg-background .break-egg{
-  background:  url(../../../assets/public/images/act/break-egg.png) no-repeat center bottom;
+.img.egg-background .right-egg.cracks-egg{
+  background:  url(../../../assets/public/images/act/cracks-egg.png) no-repeat center bottom;
   background-size: 100%;
-  width: 50%;
+  width: 35%;
   z-index:998;
 }
+
+.img.egg-background .left-egg.break-egg{
+  background:  url(../../../assets/public/images/act/break-egg.png) no-repeat center bottom;
+  background-size: 100%;
+  width: 70%;
+  left: -10%;
+  z-index:998;
+}
+.img.egg-background .center-egg.break-egg{
+  background:  url(../../../assets/public/images/act/break-egg.png) no-repeat center bottom;
+  background-size: 100%;
+  left: 11%;
+  width: 90%;
+  z-index:998;
+}
+.img.egg-background .right-egg.break-egg{
+  background:  url(../../../assets/public/images/act/break-egg.png) no-repeat center bottom;
+  background-size: 100%;
+  left: 60%;
+  width: 70%;
+  z-index:998;
+}
+
 
 .indexbottom{padding: 0rem 1.15rem;}
 .indexbottom2{padding: 4rem 3.2rem 5.2rem;width: 100%;box-sizing: border-box;}
