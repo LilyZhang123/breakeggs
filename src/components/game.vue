@@ -4,8 +4,15 @@
       <div class="indexbanner">
         <img class="title-img baoxiang" src="../assets/public/images/act/big-title.png"/>
       </div>
-      <div class="indexbanner cd" id="modalToggle">
-        <div class="img " v-bind:class="{'egg-bg1':bg1,'egg-bg2':bg2,'egg-bg3':bg3}" @click="breakegg"></div>
+      <div class="indexbanner" id="modalToggle">
+        <div class="img egg-background">
+          <div class="hammer" v-bind:style="{'top':topH,'left':leftH}"><img src="../assets/public/images/act/hammer.png" alt=""></div>
+          <div class="eggs-area">
+            <div class="left-egg" v-bind:class="{'cracks-egg':crackflag1,'break-egg':breakflag1}" @click="breakegg2($event,1)"></div>
+            <div class="center-egg" v-bind:class="{'cracks-egg':crackflag2,'break-egg':breakflag2}" @click="breakegg2($event,2)"></div>
+            <div class="right-egg" v-bind:class="{'cracks-egg':crackflag3,'break-egg':breakflag3}" @click="breakegg2($event,3)"></div>
+          </div>
+        </div>
         <div class="tips">
           <img src="../assets/public/images/act/tip.png"></div>
       </div>
@@ -15,11 +22,26 @@
       </div>
     </div>
     <!-- 未中奖 -->
-    <div class="modal" v-bind:class="{hide:hideModalFlag}" id="prize0">
+    <div class="modal" v-bind:class="{hide:hideModalFlag0}" id="prize0">
       <div class="modal-content" >
         <div class="info-icon">
           <img :src="tipsUrl" alt=""></div>
         <div class="info-content">{{tipsWord}}</div>
+        <div class="info-action">
+          <router-link class="modal-close" :to="{path:'/gift'}">
+            <img src="../assets/public/images/act/btn.png" alt=""></router-link>
+        </div>
+      </div>
+    </div>
+    <!-- 中奖 -->
+    <div class="modal" v-bind:class="{hide:hideModalFlag1}" id="prize1">
+      <div class="modal-content">
+        <div class="info-icon">
+          <img :src="tipsUrl" alt="">
+        </div>
+        <div class="info-content"><p>恭喜你！<em>获得一等奖乐扣水杯！</em></p>
+        <p>请截图保存中奖信息页面</p>
+        <p>到中国移动云计算大会现场兑奖</p></div>
         <div class="info-action">
           <router-link class="modal-close" :to="{path:'/gift'}">
             <img src="../assets/public/images/act/btn.png" alt=""></router-link>
@@ -34,10 +56,14 @@
 
 import tipsUrl from "../assets/public/images/act/lost_icon.png";
 import tipsUrl2 from "../assets/public/images/act/gift.png";
+import centerImgUrl from "../assets/public/images/act/center-egg.png";
+import smallImgUrl from "../assets/public/images/act/small-egg.png";
 export default {
   name: 'index',
   data () {
     return {
+      hideModalFlag0: true,
+      hideModalFlag1: true,
       hideModalFlag: true,
       bg1:true,
       bg2:false,
@@ -46,8 +72,21 @@ export default {
       clickFlag:false,
       tipsWord:"好可惜，没有中奖哦",
       tipsUrl:tipsUrl,
-      // tipsUrl:"../assets/public/images/act/lost_icon.png",
-      // tipsUrl:"../static/img/lost_icon.png",
+      smallImgUrl:smallImgUrl,
+      centerImgUrl:centerImgUrl,
+      popup:{
+        x:"",
+        y:""
+      },
+      topH: '20%',
+      leftH: '60%',
+      eggTop:'',
+      breakflag1:false,
+      crackflag1:false,
+      breakflag2:false,
+      crackflag2:false,
+      breakflag3:false,
+      crackflag3:false,
     }
   },
   mounted:function (){
@@ -63,6 +102,7 @@ export default {
     if (curHeight<winHeight) {
       cur[0].style.height = winHeight+"px";
     }
+    this.eggTop = document.querySelector('#modalToggle').offsetHeight;
   },
   methods:{
     init(){
@@ -85,6 +125,49 @@ export default {
         },500);
       },50);
     },
+    breakegg2:function(e,num){
+      console.log(e);
+      var rect = e.target.getBoundingClientRect();
+      this.popup.x = rect.left;
+      this.popup.y = rect.top;
+      this.topH = this.popup.y - this.eggTop/1.8 +'px';
+      this.leftH = this.popup.x + 30 +'px';
+      var that = this;
+      setTimeout(function(){
+        if (num === 1) {
+          that.breakflag1 = false;
+          that.crackflag1 = true;
+        }else if(num ===2){
+          that.breakflag2 = false;
+          that.crackflag2 = true;
+        }else{
+          that.breakflag3 = false;
+          that.crackflag3 = true;
+        }
+        
+        setTimeout(function(){
+
+          if (num === 1) {
+            that.breakflag1 = true;
+            that.crackflag1 = false;
+          }else if (num === 2) {
+            that.breakflag2 = true;
+            that.crackflag2 = false;
+          }else{
+            that.breakflag3 = true;
+            that.crackflag3 = false;
+          }
+            
+            if (that.clickFlag === false) {
+              setTimeout(function(){
+                that.RandomNumBoth(0,1);
+                that.clickFlag = true;
+                that.showModal();
+              },1000)
+            }
+        },500);
+      },500);
+    },
     RandomNumBoth:function(Min,Max){
       // 产生随机数
       var Range = Max - Min;
@@ -95,8 +178,11 @@ export default {
       this.hideModalFlag === true ?this.hideModalFlag = false:this.hideModalFlag = true;
       if (this.num ===1) {
         // 弹框1
+        this.hideModalFlag1 = false;
         this.tipsWord = "恭喜你！获得<em>一等奖乐扣水杯</em>！请截图保存中奖信息页面到中国移动云计算大会现场兑奖"
         this.tipsUrl = tipsUrl2
+      }else{
+        this.hideModalFlag0 = false;
       }
     }
   }
