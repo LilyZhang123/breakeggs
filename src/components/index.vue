@@ -10,27 +10,26 @@
         </div>
       </div>
       <div class="btn-content" id="modal-toggle" @click="hideModalFlag==true?hideModalFlag=false:hideModalFlag=false">
-        <img src="../assets/public/images/act/btn1.png"></a>
-    </div>
-    <div class="indexbottom2">
-      <a href="#">活动规则</a>
-      <!-- <a href="gift1.html">我的奖品</a> -->
-    </div>
-  </div>
-
-  <div class="modal" v-bind:class="{hide:hideModalFlag}">
-    <div class="modal-content">
-      <div class="info-icon">
-        <img src="../assets/public/images/act/tick.png" alt=""></div>
-      <div class="info-content">问卷已经提交!快去砸蛋吧~</div>
-      <div class="info-action">
-        <router-link class="modal-close"  :to="{path:'/game'}">
-          <img src="../assets/public/images/act/confirm_btn.png" alt=""></router-link>
+        <img src="../assets/public/images/act/btn1.png"></div>
+      <div class="indexbottom2">
+        <a href="#">活动规则</a>
+        <a href="gift1.html">我的奖品</a>
       </div>
     </div>
+
+    <div class="modal" v-bind:class="{hide:hideModalFlag}">
+      <div class="modal-content">
+        <div class="info-icon">
+          <img src="../assets/public/images/act/tick.png" alt=""></div>
+        <div class="info-content">问卷已经提交!快去砸蛋吧~</div>
+        <div class="info-action">
+          <router-link class="modal-close"  :to="{path:'/game'}">
+            <img src="../assets/public/images/act/confirm_btn.png" alt=""></router-link>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop"  v-bind:class="{hide:hideModalFlag}"></div>
   </div>
-  <div class="modal-backdrop"  v-bind:class="{hide:hideModalFlag}"></div>
-</div>
 </template>
 
 <script>
