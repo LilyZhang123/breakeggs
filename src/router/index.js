@@ -7,6 +7,7 @@ const index = r => require.ensure([], () => r(require('../components/index.vue')
 const game = r => require.ensure([], () => r(require('../components/game.vue')), 'game');
 const gift = r => require.ensure([], () => r(require('../components/gift.vue')), 'gift');
 const circle = r => require.ensure([], () => r(require('../components/circle.vue')), 'circle');
+const countdown = r => require.ensure([], () => r(require('../components/countdown.vue')), 'countdown');
 
 export default new Router({
   routes: [
@@ -26,6 +27,10 @@ export default new Router({
       path: '/circle',
       name: 'circle',
       component: circle
+    },{
+      path: '/countdown',
+      name: 'countdown',
+      component: countdown
     },
   ]
 })
