@@ -8,6 +8,7 @@ const game = r => require.ensure([], () => r(require('../components/game.vue')),
 const gift = r => require.ensure([], () => r(require('../components/gift.vue')), 'gift');
 const circle = r => require.ensure([], () => r(require('../components/circle.vue')), 'circle');
 const countdown = r => require.ensure([], () => r(require('../components/countdown.vue')), 'countdown');
+const canvasdraw = r => require.ensure([], () => r(require('../components/canvasdraw.vue')), 'canvasdraw');
 
 export default new Router({
   routes: [
@@ -31,6 +32,10 @@ export default new Router({
       path: '/countdown',
       name: 'countdown',
       component: countdown
+    },{
+      path: '/canvasdraw',
+      name: 'canvasdraw',
+      component: canvasdraw
     },
   ]
 })
