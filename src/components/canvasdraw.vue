@@ -16,11 +16,13 @@ export default {
   mounted:function (){
     var dom = document.getElementById('countDown');
     this.context = dom.getContext("2d");
-    this.renderData(this.context);
+    this.drawLine(this.context);
   },
   methods:{
-    renderData(context){
-      
+    drawLine(context){
+      context.moveTo(100,100);
+      context.lineTo(700,700);
+      context.stroke()
     },
     
   }
