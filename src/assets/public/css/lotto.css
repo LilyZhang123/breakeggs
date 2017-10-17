@@ -1,0 +1,76 @@
+*{padding:0px;margin:0px;}
+ul,li{list-style:none;}
+em{font-style: normal;}
+/*body{width:100%;height:100%;font-family:"黑体";background:#ec5054 url(../../../assets/public/images/lotto/indexheadbg.png) no-repeat;background-position: center top;background-size: 100% auto;}*/
+.wrap{width:100%;height:100%;position: relative;}
+.wrap .banner{width:100%;text-align:center;}
+.wrap .banner img{width:100%;line-height:0;font-size:0; vertical-align:middle;}
+.wrap .wrapcont{padding:0px 18px;height:auto;}
+.cont p{font-size:15px;color:#fff4b5;padding-left: 6px;padding-top: 22px;}
+.cont p img{width:10px;height:18px;lin-height:0;font-size:0; vertical-align:middle;}
+.cont p span{line-height:21px;vertical-align:middle;padding-left:8px;}
+.cont p b{font-size:10px;font-weight:normal;}
+.cont .abox{padding:15px 22px 10px;}
+.cont .abox a{width:100%;background:url(../../../assets/public/images/lotto/btnbg.png) no-repeat;background-size:100% 45px;height:45px;line-height:43px;font-size:15px;color:#ec5054;display:block;text-align:center;margin:0 auto;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.cont2{width:100%;padding:0px 0px 10px;height:auto;}
+.cont2 p{font-size:15px;color:#fff4b5;line-height:22px;padding-left: 6px;}
+.cont2 p img{width:20px;height:18px;line-height:0;font-size:0; vertical-align:middle; }
+.cont2 p em{font-style:normal;font-family: helvetica;}
+.cont2 p span{line-height:21px;vertical-align:middle;padding-left:8px;}
+.cont2 .choujbg{margin:0px 5px;text-align:center;margin-top:14px;height:auto;}   
+.cont2 .chouj{margin:0 auto;list-style:none; display:block;padding:12px;background: url(../../../assets/public/images/lotto/borderbg.png) no-repeat;background-size: 100% 100%;}     
+.cont2 .chouj li{width:33%; float:left; list-style:none;position:relative;} 
+.cont2 .chouj li img{display:block; vertical-align:middle; width: 100%;}
+#cjbut{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.mr{ border-right: 1px solid #ec5054;}
+.mb{border-bottom: 1px solid #ec5054;}
+.bottombar{padding: 0px 30px;width: 100%;box-sizing: border-box;}
+.ziti{ color:#fff7ca; font-size:12px; }
+.ziti:nth-child(1){float: left;}
+.ziti:nth-child(2){float: right;}
+.tm{ background:#000;opacity:0.3; position:absolute; top:0; left:0; width:100%; height:100%;}
+
+/* 订购页面 */
+.wrapbox{padding:27px 9px 0px;height:auto;}
+.wrapbox .dgban{background:url(../../../assets/public/images/lotto/dgbg1.png) no-repeat;background-size:100% 100%;padding: 10px 9px 0px;}
+.dgban .jbox{background:url(../../../assets/public/images/lotto/dgbg2.png) no-repeat;background-size:100% 100%;}
+.dgbox{padding: 13px 21px 13px 17px;}
+.dgbox .dglist{padding:12px 4px 0px 9px;border-bottom:1px solid #f4999c;height:50px;box-sizing: border-box;}
+.dglist img{float:left;}
+.dglist span{font-size:14px;color:#d94044;padding-left:10px;}
+.dglist .dgbtn{float:right;display:block;width:55px;height:28px;font-size:14px;text-align:center;color:#ffebc8;line-height:28px;background:#f44040;border-radius:15px;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.msgb{padding: 15px 0px;font-size:13px;text-align: center;color: #ffebc8;}
+/* 中奖记录 */
+.zjbox{padding: 35px 13px 0px;background-color: #ec5054;margin-top: -3px;}
+table{width: 100%; border:1px solid #f98a00; border-bottom: none;color: #feeda5; font-size: 13px;}
+table tr{height: 37px; box-sizing: border-box;}
+table th{border-bottom: 1px solid #f98a00; box-sizing: border-box; background-color: #e2404a; }
+table th:not(last-child){border-right: 1px solid #f98a00; }
+table td{border-bottom: 1px solid #f98a00; width: 33%;}
+table tr td:not(last-child){border-right: 1px solid #f98a00; }
+table tr td em{font-family: helvetica; }
+.yaoqing{width:70%;height:45px;line-height:43px;text-align:center;color:#ec5054;position:absolute;bottom:40px;left: 15%;background: url(../../../assets/public/images/lotto/btnbg.png) no-repeat;background-size: 100% 100%;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+/*活动规则*/
+.rulebox{padding: 30px 14px 30px 20px;background-color: #ec5054;margin-top: -3px;}
+.rulebox p{font-size: 12px;color: #fde8a2;line-height: 18px;}
+.rulebox p b{font-size: 13px;}
+.rulebox p em{font-family: helvetica;}
+/*弹框*/
+.tmbg{display:none;width:100%;height:100%; background:rgba(0,0,0,.7);position:fixed;top:0;left:0;padding: 0px 40px;box-sizing: border-box;} 
+.tank{ position:relative;}
+.tankif{ background-color: #ec5054;border-top-left-radius: 30px;border-top-right-radius: 30px;border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;}
+.proimg{text-align: center;padding: 23px 0px 12px 0px;background: url(../../../assets/public/images/lotto/tkheadbg.png) no-repeat;background-size: 100% 100%;}
+.tankif p{ color:#ffeea1;line-height:20px;font-size:13px;padding: 26px 18px 21px 28px;}
+.tkbtn{padding: 0px 20px 31px;}
+.tkbtn a{ height:40px;font-size: 12px; text-align:center; line-height:40px; display:block; box-sizing:border-box;}
+.tkbtn a.surebtn{width:44%; background:url(../../../assets/public/images/lotto/tkbtnbg.png) no-repeat;background-size: 100% 100%; color:#FFFFFF; float:left;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.tkbtn a.sharebtn{width:44%; background:url(../../../assets/public/images/lotto/tkbtnbg2.png) no-repeat;background-size: 100% 100%; color:#ec5054; float:right;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.tkbtn a.zhidaobtn{width:70%; background:url(../../../assets/public/images/lotto/tkbtnbg3.png) no-repeat;background-size: 100% 100%;color:#ec5054;margin:0 auto;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+/*分享浮层*/
+.fxtk{width:100%;height:100%;background:rgba(0,0,0,.78);position:fixed;top:0px;left:0px;padding: 50px 38px 0px 70px;box-sizing: border-box;}
+
+@media(min-device-width:375px){
+    .ziti{ font-size:14px;}
+    .dglist span{font-size:16px;}
+    .msgb{padding: 20px 0px;font-size:15px;}
+}

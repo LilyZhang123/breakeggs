@@ -6,8 +6,9 @@
 
 <script>
 import Data  from "../assets/public/json/digit.js";
+import smallImgUrl from "../assets/public/images/act/small-egg.png";
 export default {
-  name: 'index',
+  name: 'canvasdraw',
   data () {
     return {
       hideModalFlag: true,
@@ -18,13 +19,28 @@ export default {
     dom.height=800;
     dom.width=800;
     this.context = dom.getContext("2d");
-    // this.drawLine(this.context);
-    this.context.fillStyle="black";
+    var backgroudImage = new Image();
+    backgroudImage.src = smallImgUrl;
+
+    var bgImg = this.context.createPattern(backgroudImage,"no-repeat");
+    this.context.fillStyle=bgImg;
     this.context.fillRect(0,0,dom.width,dom.height);
+
+    // 绘制 背景 线性渐变
+    // var lineGrad = this.context.createLinearGradient(0,0,0,800);
+    // lineGrad.addColorStop(0.0,"#000");
+    // lineGrad.addColorStop(1.0,"#035");
+    // 径向渐变
+    // var lineGrad = this.context.createRadialGradient(dom.width/2,dom.height,0,dom.width/2,dom.height,dom.height);
+    // lineGrad.addColorStop(1.0,'#000');
+    // lineGrad.addColorStop(0.0,'#035');
+    // this.context.fillStyle=lineGrad;
+    // this.context.fillRect(0,0,dom.width,dom.height);
+
     for (var i = 0; i < 200; i++) {
-      var R = Math.random()*10+10;
+      var R = Math.random()*5+5;
       var x = Math.random()*dom.width;
-      var y = Math.random()*dom.height;
+      var y = Math.random()*dom.height*0.65;
       var a = Math.random()*360;
       this.drawStar1(this.context,x,y,R,a);
     }
@@ -92,28 +108,31 @@ export default {
     drawStar1(context,x,y,outerR,rot){
       context.save();
       context.translate(x,y);
+
       context.rotate(rot/180*Math.PI);
       context.scale(outerR,outerR);
+      // context.transform(outerR,rot/180*Math.PI,0,outerR,x,y)
+
 
       this.starPath(context);
-      context.strokeStyle = "rgba(255,230,0,0.5)";
-      // context.lineWidth="2";
-      // context.fillStyle = 'rgb(255,230,0)';
 
-      context.closePath();
+      context.fillStyle = 'rgb(255,230,0)';
+      // context.strokeStyle = 'rgb(255,230,0)';
+      context.lineWidth = 3;
+      context.lineJoin = 3;
       // context.stroke();
       context.fill();
-
+      // context.setTransform(1,0,0,1,0,0)
       context.restore();
     },
     starPath(context){
       context.beginPath();
 
       for (var i = 0; i < 5; i++) {
-        context.lineTo(Math.cos((18+i*72)/180*Math.PI)*20,
-                      -Math.sin((18+i*72)/180*Math.PI)*20);
-        context.lineTo(Math.cos((54+i*72)/180*Math.PI)*0.6*20,
-                      -Math.sin((54+i*72)/180*Math.PI)*0.6*20);
+        context.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) ,
+                      -Math.sin((18 + i * 72) / 180 * Math.PI) );
+        context.lineTo(Math.cos((54 + i * 72) / 180*Math.PI) * 0.6 ,
+                      -Math.sin((54 + i * 72) / 180*Math.PI) * 0.6 );
       }
       context.closePath();
     }
