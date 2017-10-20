@@ -1,17 +1,73 @@
 <template>
   <div class="index">
        <canvas id="countDown"  style="display:block;margin:0 auto;border:1px solid #ccc;" ></canvas> 
+
+       <lotto :list="list" :btn="btn" :over="over"></lotto>
   </div>
+
 </template>
 
 <script>
+import img1 from "../assets/public/images/lotto/cj11.png";
+import img2 from "../assets/public/images/lotto/cj22.png";
+import img3 from "../assets/public/images/lotto/cj33.png";
+import img4 from "../assets/public/images/lotto/cj44.png";
+import img5 from "../assets/public/images/lotto/cj55.png";
+import img6 from "../assets/public/images/lotto/cj66.png";
+import img7 from "../assets/public/images/lotto/cj77.png";
+import img8 from "../assets/public/images/lotto/cj88.png";
+import btn from "../assets/public/images/lotto/cj9.png";
+import btn1 from "../assets/public/images/lotto/cj9_2.png";
+import btn2 from "../assets/public/images/lotto/cj9_3.png";
+
+var defaultArr = [{
+        url:img8,
+        id:0,
+        displayStyle:"block"
+      },{
+        url:img1,
+        id:1,
+        displayStyle:"block"
+      },{
+        url:img2,
+        id:2,
+        displayStyle:"block"
+      },{
+        url:img3,
+        id:3,
+        displayStyle:"block"
+      },{
+        url:img4,
+        id:4
+      },{
+        url:img4,
+        id:5,
+        displayStyle:"block"
+      },{
+        url:img5,
+        id:6,
+        displayStyle:"block"
+      },{
+        url:img6,
+        id:7,
+        displayStyle:"block"
+      },{
+        url:img7,
+        id:8,
+        displayStyle:"block"
+      }
+      ];
 import Data  from "../assets/public/json/digit.js";
 import smallImgUrl from "../assets/public/images/act/small-egg.png";
+import lotto from "../components/lotto.vue";
+
 export default {
   name: 'canvasdraw',
   data () {
     return {
-      hideModalFlag: true,
+      list:defaultArr,
+      btn:btn,
+      over:20
     }
   },
   mounted:function (){
@@ -45,6 +101,9 @@ export default {
       this.drawStar1(this.context,x,y,R,a);
     }
     
+  },
+  components:{
+    lotto
   },
   methods:{
     drawLine(context){

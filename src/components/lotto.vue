@@ -81,20 +81,14 @@ export default {
     list:{
       type:Array,
       default:function () {
-        return defaultArr
+        return []
       }
     },
     btn:{
       type:String,
-      default:function () {
-        return btn
-      }
     },
     over:{
       type:Number,
-      default:function () {
-        return 20
-      }
     }
   },
   mounted:function (){
