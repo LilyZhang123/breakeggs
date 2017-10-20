@@ -3,63 +3,15 @@
     <div class="wrap">
       <div class="wrapcont">
         <div class="cont2">
-          <p>
-            <img src="../assets/public/images/lotto/icon2.png" />
-            <span>
-              您有 <em>X</em>
-              次抽奖机会
-            </span>
-          </p>
           <div class="choujbg">
             <ul class="chouj">
-              <div class="mb clearfix">
-                <li class="mr">
-                  <img src="../assets/public/images/lotto/cj11.png">
-                  <div id="d1"  class="tm" style="border-top-left-radius: 8px;"></div>
-                </li>
-                <li class="mr">
-                  <img src="../assets/public/images/lotto/cj22.png">
-                  <div id="d2"  class="tm"></div>
-                </li>
-                <li>
-                  <img src="../assets/public/images/lotto/cj33.png">
-                  <div id="d3" class="tm" style="border-top-right-radius: 8px;"></div>
-                </li>
-              </div>
-
-              <div class="mb clearfix">
-                <li class="mr">
-                  <img src="../assets/public/images/lotto/cj44.png">
-                  <div id="d8"  class="tm"></div>
-                </li>
-                <li class="mr" id="cj_button">
-                  <img id="cjbut" src="../assets/public/images/lotto/cj9.png"></li>
-                <!-- 抽奖中按钮-->
-                <li class="mr" style="display: none;">
-                  <img id="cjbut" src="../assets/public/images/lotto/cj9_2.png"></li>
-                <!-- 抽奖结束按钮-->
-                <li class="mr" style="display: none;">
-                  <img id="cjbut" src="../assets/public/images/lotto/cj9_3.png"></li>
-                <li>
-                  <img src="../assets/public/images/lotto/cj55.png">
-                  <div id="d4"  class="tm"></div>
-                </li>
-              </div>
-
-              <div class="clearfix">
-                <li class="mr">
-                  <img src="../assets/public/images/lotto/cj66.png">
-                  <div id="d7"  class="tm" style="border-bottom-left-radius: 8px;"></div>
-                </li>
-                <li class="mr">
-                  <img src="../assets/public/images/lotto/cj77.png">
-                  <div id="d6"  class="tm"></div>
-                </li>
-                <li>
-                  <img src="../assets/public/images/lotto/cj88.png">
-                  <div id="d5"  class="tm" style="border-bottom-right-radius: 8px;"></div>
-                </li>
-              </div>
+              <li class="mr" v-for="(item,index) in list" v-if="index != 4">
+                <img :src="item.url" >
+                <div class="tm" v-bind:style="{display:item.displayStyle}">{{index}}</div>
+              </li>
+              <li v-else>
+                <img  :src="btn" @click="choujiang" >
+              </li>
             </ul>
           </div>
         </div>
@@ -69,11 +21,63 @@
 </template>
 
 <script>
+import img1 from "../assets/public/images/lotto/cj11.png";
+import img2 from "../assets/public/images/lotto/cj22.png";
+import img3 from "../assets/public/images/lotto/cj33.png";
+import img4 from "../assets/public/images/lotto/cj44.png";
+import img5 from "../assets/public/images/lotto/cj55.png";
+import img6 from "../assets/public/images/lotto/cj66.png";
+import img7 from "../assets/public/images/lotto/cj77.png";
+import img8 from "../assets/public/images/lotto/cj88.png";
+import btn from "../assets/public/images/lotto/cj9.png";
+import btn1 from "../assets/public/images/lotto/cj9_2.png";
+import btn2 from "../assets/public/images/lotto/cj9_3.png";
 export default {
   name: 'index',
   data () {
     return {
-      hideModalFlag0: true,
+      start:0,
+      count:0,
+      speed:200,
+      over:20,
+      btn:btn,
+      list:[{
+        url:img8,
+        id:0,
+        displayStyle:"block"
+      },{
+        url:img1,
+        id:1,
+        displayStyle:"block"
+      },{
+        url:img2,
+        id:2,
+        displayStyle:"block"
+      },{
+        url:img3,
+        id:3,
+        displayStyle:"block"
+      },{
+        url:img4,
+        id:4
+      },{
+        url:img4,
+        id:5,
+        displayStyle:"block"
+      },{
+        url:img5,
+        id:6,
+        displayStyle:"block"
+      },{
+        url:img6,
+        id:7,
+        displayStyle:"block"
+      },{
+        url:img7,
+        id:8,
+        displayStyle:"block"
+      }
+      ]
     }
   },
   mounted:function (){
@@ -95,38 +99,54 @@ export default {
 
     },
     choujiang(){
-      for(var i=1;i<9;i++){
-        $('#d'+i).show();
+      for(var i=0;i<9;i++){
+        this.list[i].displayStyle = "block";
       }
-      start++;
-      count++;
-      stopid= Math.floor(Math.random() * 8);;
-      if(start > 8){
-        start = start - 8;
+      this.btn = btn1;
+      
+      this.count++;
+      var stopid= Math.floor(Math.random() * 8);;
+      
+  
+      this.list[this.start].displayStyle = "none";
+
+      if (this.start == 2) {
+         this.start = 5
+      }else if (this.start == 5) {
+         this.start = 8
+      }else if (this.start == 6) {
+         this.start = 3
+      }else if (this.start == 3) {
+         this.start = 0
+      }else if (this.start == 8|| this.start == 7) {
+         this.start --
+      }else if (this.start == 0|| this.start == 1) {
+         this.start ++
       }
-      $('#d'+start).hide();
-      if(count >= over){
-        if(start == stopid){
-          count = 0;
-          speed = 200;
-          over = $('#over').val();
-          setTimeout(function() {
-            if('<{$stop}>' == 8){
-              showdemo($("#liu100"));
-            }else{
-              showdemo($("#liu100"));
-            }
-            $("#choujiang").val('1');
-          },1000); 
+      if(this.count >= this.over){
+        if(this.start == stopid){
+          this.count = 0;
+          this.speed = 200;
+          // this.over = $('#over').val();
+          // setTimeout(function() {
+          //   if('<{$stop}>' == 8){
+          //     showdemo($("#liu100"));
+          //   }else{
+          //     showdemo($("#liu100"));
+          //   }
+          //   $("#choujiang").val('1');
+          // },1000); 
+          this.btn = btn2
           return false;
         }
       }
-      if(count < 8){speed -= 20;}
-      if(count > 24){speed += 20;}
-      if(start==8){start=0;}
+      if(this.count < 8){this.speed -= 20;}
+      if(this.count > 24){this.speed += 20;}
+      // if(this.start==8){this.start=0;}
+      var that = this;
       setTimeout(function() {
-      choujiang()
-      },speed); 
+      that.choujiang()
+      },that.speed); 
     }
     
   }

@@ -18,11 +18,11 @@ em{font-style: normal;}
 .cont2 p em{font-style:normal;font-family: helvetica;}
 .cont2 p span{line-height:21px;vertical-align:middle;padding-left:8px;}
 .cont2 .choujbg{margin:0px 5px;text-align:center;margin-top:14px;height:auto;}   
-.cont2 .chouj{margin:0 auto;list-style:none; display:block;padding:12px;background: url(../../../assets/public/images/lotto/borderbg.png) no-repeat;background-size: 100% 100%;}     
-.cont2 .chouj li{width:33%; float:left; list-style:none;position:relative;} 
+.cont2 .chouj{margin:0 auto;list-style:none; display:block;padding:12px;background: url(../../../assets/public/images/lotto/borderbg.png) no-repeat;background-size: 100% 100%;overflow: hidden; }     
+.cont2 .chouj li{width:33%; float:left; list-style:none;position:relative; height: 180px;} 
 .cont2 .chouj li img{display:block; vertical-align:middle; width: 100%;}
 #cjbut{-webkit-tap-highlight-color: rgba(0,0,0,0);}
-.mr{ border-right: 1px solid #ec5054;}
+.mr{ border-right: 1px solid #ec5054; }
 .mb{border-bottom: 1px solid #ec5054;}
 .bottombar{padding: 0px 30px;width: 100%;box-sizing: border-box;}
 .ziti{ color:#fff7ca; font-size:12px; }
