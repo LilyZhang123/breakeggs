@@ -1,6 +1,4 @@
 <template>
-  <div class="indexwrap">
-    <div class="wrap">
       <div class="wrapcont">
         <div class="cont2">
           <div class="choujbg">
@@ -16,11 +14,11 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 </template>
 
 <script>
+
+
 import img1 from "../assets/public/images/lotto/cj11.png";
 import img2 from "../assets/public/images/lotto/cj22.png";
 import img3 from "../assets/public/images/lotto/cj33.png";
@@ -32,16 +30,8 @@ import img8 from "../assets/public/images/lotto/cj88.png";
 import btn from "../assets/public/images/lotto/cj9.png";
 import btn1 from "../assets/public/images/lotto/cj9_2.png";
 import btn2 from "../assets/public/images/lotto/cj9_3.png";
-export default {
-  name: 'index',
-  data () {
-    return {
-      start:0,
-      count:0,
-      speed:200,
-      over:20,
-      btn:btn,
-      list:[{
+
+var defaultArr = [{
         url:img8,
         id:0,
         displayStyle:"block"
@@ -77,22 +67,37 @@ export default {
         id:8,
         displayStyle:"block"
       }
-      ]
+      ];
+export default {
+  name: 'lotto',
+  data () {
+    return {
+      start:0,
+      count:0,
+      speed:200,
+    }
+  },
+  props:{
+    list:{
+      type:Array,
+      default:function () {
+        return defaultArr
+      }
+    },
+    btn:{
+      type:String,
+      default:function () {
+        return btn
+      }
+    },
+    over:{
+      type:Number,
+      default:function () {
+        return 20
+      }
     }
   },
   mounted:function (){
-    let cur = document.querySelectorAll("div[class='indexwrap']");
-    let curHeight = cur[0].offsetHeight;
-    let winHeight,winWidth;
-    //获取窗口高度
-    if (window.innerHeight){
-        winHeight = window.innerHeight;
-        winWidth = window.innerWidth;
-    }else if ((document.body) && (document.body.clientHeight))
-      winHeight = document.body.clientHeight;
-    if (curHeight<winHeight) {
-      cur[0].style.height = winHeight+"px";
-    }
   },
   methods:{
     init(){
